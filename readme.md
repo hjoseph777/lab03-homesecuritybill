@@ -39,6 +39,7 @@ The `BillCalculator` class handles all pricing calculations. It calculates the m
 ## Output
 
 ![output1](src/main/resources/images/1bill.png)
+
 ![output2](src/main/resources/images/3bill.png)
 ![output3](src/main/resources/images/4bill.png)
 ![output4](src/main/resources/images/5bill.png)
