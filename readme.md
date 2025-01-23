@@ -37,12 +37,10 @@ The `BillCalculator` class handles all pricing calculations. It calculates the m
 
 ## Example Output
 
-![output1](/src/main/resources/images/1bill.png)
-![output2](src/main/resources/images/3bill.png)
-![output3](src/main/resources/images/4bill.png)
-![output4](src/main/resources/images/5bill.png)
-
-
+![output1](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/1Bill.png)
+![output2](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/3Bill.png)
+![output3](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/4Bill.png)
+![output4](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/5Bill.png)
 
 
 ## Directory and File Structure
