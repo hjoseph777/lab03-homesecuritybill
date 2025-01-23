@@ -37,10 +37,18 @@ The `BillCalculator` class handles all pricing calculations. It calculates the m
 
 ## Example Output
 
-![output1](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/1Bill.png)
-![output2](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/3Bill.png)
-![output3](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/4Bill.png)
-![output4](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/5Bill.png)
+<div style="display: flex; flex-wrap: wrap;">
+    <!-- First Row -->
+    <div style="display: flex; width: 75%;">
+        <img src="https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/1Bill.png?raw=true" alt="output1" style="width: 50%;">
+        <img src="https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/3Bill.png?raw=true" alt="output2" style="width: 50%;">
+    </div>
+    <!-- Second Row -->
+    <div style="display: flex; width: 75%;">
+        <img src="https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/4Bill.png?raw=true" alt="output3" style="width: 50%;">
+        <img src="https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/5Bill.png?raw=true" alt="output4" style="width: 50%;">
+    </div>
+</div>
 
 
 ## Directory and File Structure
