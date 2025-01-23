@@ -41,6 +41,7 @@ The `BillCalculator` class handles all pricing calculations. It calculates the m
 
 
 ## Output
+## Output
 <div style="display: flex; flex-wrap: wrap;">
     <!-- First Row -->
     <div style="display: flex; width: 75%;">
