@@ -43,13 +43,13 @@ The `BillCalculator` class handles all pricing calculations. It calculates the m
 <div style="display: flex; flex-wrap: wrap;">
     <!-- First Row -->
     <div style="display: flex; width: 75%;">
-![output1](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/1bill.png?raw=true)
-![output2](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/3bill.png?raw=true)
+![output1](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/1bill.png)
+![output2](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/3bill.png)
     </div>
     <!-- Second Row -->
     <div style="display: flex; width: 75%;">
-![output3](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/4bill.png?raw=true)
-![output4](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/5bill.png?raw=true)
+![output3](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/4bill.png)
+![output4](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/5bill.png)
     </div>
 </div>
 
