@@ -36,22 +36,15 @@ The `BillCalculator` class handles all pricing calculations. It calculates the m
 4. The final order confirmation will be displayed.
 
 ## Example Output
-
-
-
 ## Output
-<div style="display: flex; flex-wrap: wrap;">
-    <!-- First Row -->
-    <div style="display: flex; width: 75%;">
-![output1](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/1bill.png)
-![output2](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/3bill.png)
-    </div>
-    <!-- Second Row -->
-    <div style="display: flex; width: 75%;">
-![output3](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/4bill.png)
-![output4](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/5bill.png)
-    </div>
-</div>
+
+![output1](src/main/resources/images/1bill.png)
+![output2](src/main/resources/images/3bill.png)
+![output3](src/main/resources/images/4bill.png)
+![output4](src/main/resources/images/5bill.png)
+
+
+
 
 ## Directory and File Structure
 <pre>
