@@ -39,19 +39,17 @@ The `BillCalculator` class handles all pricing calculations. It calculates the m
 
 
 
-
-## Output
 ## Output
 <div style="display: flex; flex-wrap: wrap;">
     <!-- First Row -->
     <div style="display: flex; width: 75%;">
-        <img src="https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/1bill.png?raw=true" alt="output1" style="width: 50%;">
-        <img src="https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/3bill.png?raw=true" alt="output2" style="width: 50%;">
+        ![output1](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/1bill.png?raw=true)
+        ![output2](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/3bill.png?raw=true)
     </div>
     <!-- Second Row -->
     <div style="display: flex; width: 75%;">
-        <img src="https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/4bill.png?raw=true" alt="output3" style="width: 50%;">
-        <img src="https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/5bill.png?raw=true" alt="output4" style="width: 50%;">
+        ![output3](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/4bill.png?raw=true)
+        ![output4](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/5bill.png?raw=true)
     </div>
 </div>
 
