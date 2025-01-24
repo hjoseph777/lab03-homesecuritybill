@@ -9,11 +9,13 @@ import java.util.Scanner;
 
 public class HomeSecurityBillTester {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        HomeSecurityBill bill = new HomeSecurityBill();
-        bill.takeInput(input);
-        System.out.println();
-        System.out.println(bill.toString());
-        input.close();
+        try (Scanner input = new Scanner(System.in)) {
+            HomeSecurityBill bill = new HomeSecurityBill();
+            bill.takeInput(input);
+            System.out.println("\n=== Bill Summary ===");
+            System.out.println(bill.toString());
+        } catch (Exception e) {
+            System.err.println("An error occurred: " + e.getMessage());
+        }
     }
 }
