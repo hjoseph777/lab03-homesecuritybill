@@ -13,26 +13,26 @@ public class BillCalculator {
     private static final double YFINITY_PRICE = 13.99;
     private static final double ZFINITY_PRICE = 12.99;
     private static final double UFINITY_PRICE = 23.99;
+    private static final int UFINITY_INCLUDED_CAMERAS = 4;
+    
+    private double getBasePrice(int term) {
+        switch (term) {
+            case 1: return XFINITY_PRICE;
+            case 2: return YFINITY_PRICE;
+            case 3: return ZFINITY_PRICE;
+            default: return UFINITY_PRICE;
+        }
+    }
 
     public double calculateMonthlyPrice(int cameraCount, int term) {
-        double basePrice;
-        switch (term) {
-            case 1:
-                basePrice = XFINITY_PRICE;
-                break;
-            case 2:
-                basePrice = YFINITY_PRICE;
-                break;
-            case 3:
-                basePrice = ZFINITY_PRICE;
-                break;
-            default:
-                basePrice = UFINITY_PRICE;
-                cameraCount = 0; // UFinity includes four cameras at no additional cost
-                break;
+        double basePrice = getBasePrice(term);
+        boolean isUFinity = term >= 4;
+        
+        if (isUFinity) {
+            return basePrice + (cameraCount > UFINITY_INCLUDED_CAMERAS ? (cameraCount - UFINITY_INCLUDED_CAMERAS) * ADDITIONAL_CAMERA_PRICE : 0); // UFinity includes up to 4 cameras at no additional cost
         }
-        double camerasCost = (term < 4) ? FIRST_CAMERA_PRICE + (cameraCount - 1) * ADDITIONAL_CAMERA_PRICE : 0;
-        return basePrice + camerasCost;
+        
+        return basePrice + FIRST_CAMERA_PRICE + (cameraCount - 1) * ADDITIONAL_CAMERA_PRICE;
     }
 
     public static double calculateTotalContractValue(double monthlyPrice, int contractYears) {
