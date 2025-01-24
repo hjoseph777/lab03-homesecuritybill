@@ -8,8 +8,8 @@ import java.util.Scanner;
 public class HomeSecurityInputvalidation {
     private static final int MIN_CAMERAS = 1;
     private static final int MIN_CONTRACT_YEARS = 2;
-    private static final String CONFIRMATION_PROMPT = 
-        "\nWould you like to proceed with this order? (y/n): ";
+    private static final int MIN_TERM_YEARS = 1;
+    private static final String CONFIRMATION_PROMPT = "\nWould you like to proceed with this order? (y/n): ";
 
     public String getValidString(Scanner input, String prompt) {
         String value;
@@ -23,52 +23,47 @@ public class HomeSecurityInputvalidation {
         return value;
     }
 
-    public int getValidCameraCount(Scanner input) {
-        int cameras = 0;
-        while (cameras < MIN_CAMERAS) { 
-            System.out.print("Number of Cameras (minimum " + MIN_CAMERAS + "): ");
+    private int getValidNumber(Scanner input, String prompt, int minValue, String errorMessage) {
+        int value = 0;
+        while (value < minValue) {
+            System.out.print(prompt);
             try {
-                cameras = Integer.parseInt(input.nextLine());
-                if (cameras < MIN_CAMERAS) {  
-                    System.out.println("Must have at least " + MIN_CAMERAS + " camera");
+                value = Integer.parseInt(input.nextLine());
+                if (value < minValue) {
+                    System.out.println(errorMessage);
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Please enter a valid number");
             }
         }
-        return cameras;
+        return value;
+    }
+
+    public int getValidCameraCount(Scanner input) {
+        return getValidNumber(
+            input,
+            String.format("Number of Cameras (minimum %d): ", MIN_CAMERAS),
+            MIN_CAMERAS,
+            String.format("Must have at least %d camera", MIN_CAMERAS)
+        );
     }
 
     public int getValidContractYears(Scanner input) {
-        int years = 0;
-        while (years < MIN_CONTRACT_YEARS) {  
-            System.out.print("Contract Years (minimum " + MIN_CONTRACT_YEARS + "): ");
-            try {
-                years = Integer.parseInt(input.nextLine());
-                if (years < MIN_CONTRACT_YEARS) { 
-                    System.out.println("Minimum contract is " + MIN_CONTRACT_YEARS + " years");
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Please enter a valid number");
-            }
-        }
-        return years;
+        return getValidNumber(
+            input,
+            String.format("Contract Years (minimum %d): ", MIN_CONTRACT_YEARS),
+            MIN_CONTRACT_YEARS,
+            String.format("Minimum contract is %d years", MIN_CONTRACT_YEARS)
+        );
     }
 
     public int getValidTerm(Scanner input) {
-        int term = 0;
-        while (term < 1) {
-            System.out.print("Number of Years (minimum 1): ");
-            try {
-                term = Integer.parseInt(input.nextLine());
-                if (term < 1) {
-                    System.out.println("Term must be at least 1 year");
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Please enter a valid number");
-            }
-        }
-        return term;
+        return getValidNumber(
+            input,
+            String.format("Number of Years (minimum %d): ", MIN_TERM_YEARS),
+            MIN_TERM_YEARS,
+            "Term must be at least 1 year"
+        );
     }
 
     public boolean getConfirmation(Scanner input) {
