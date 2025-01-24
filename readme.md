@@ -56,8 +56,9 @@ The `HomeSecurityBill` class stores customer and contract information. It calcul
 The `HomeSecurityBillTester` class is the main application class. It prompts the user for input, creates a `HomeSecurityBill` object, and displays the final bill summary. It also handles user confirmation and error display.
 
 ### 3. HomeSecurityInputvalidation
-**File:** [HomeSecurityInputvalidation.java](src/main/java/com/security/app/validation/HomeSecurityInputvalidation.java)
-          [validation](src/main/java/com/security/validation/HomeSecurityInputvalidation.java) 
+**File:** [HomeSecurityInputvalidation.java](src/main/java/com/security/validation/HomeSecurityInputvalidation.java)
+          
+         
 
 **Description:** 
 The `HomeSecurityInputvalidation` class provides utility methods for validating user input. It ensures that the input values for customer name, address, number of cameras, and contract years are valid. It also handles user confirmation prompts.
