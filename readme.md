@@ -1,7 +1,45 @@
-# Lab02-HomeSecurityBill
+# Home Security Bill Calculator
 
-## Synopsis
-The Home Security Bill Calculator is a Java program designed to help users select a home security package based on the number of years they commit to. The program calculates the monthly bill, displays relevant details, and provides a summary of the selected package. Users can choose from four distinct home security packages: XFinity, YFinity, ZFinity, and UFinity.
+A Java application for calculating home security system bills based on different packages and camera configurations.
+
+## Features
+
+- Calculate monthly charges for home security packages
+- Support for different contract terms (1-4 years)
+- Camera equipment pricing calculations
+- Input validation for customer information
+- Multiple package options (XFinity, YFinity, ZFinity, UFinity)
+
+## Package Details
+
+- **1-year term (XFinity)**: $15.99/month base price
+- **2-year term (YFinity)**: $13.99/month base price
+- **3-year term (ZFinity)**: $12.99/month base price
+- **4-year term (UFinity)**: $23.99/month base price (includes 4 cameras)
+
+## Camera Pricing
+
+For 1-3 year terms:
+- First camera: $5/month
+- Each additional camera: $3/month
+- Minimum 1 camera required
+
+4-year term includes 4 cameras in the base price.
+
+## Usage
+
+1. Run the application
+2. Enter customer name
+3. Select contract term (1-4 years)
+4. For 1-3 year terms, specify number of cameras
+5. System will calculate and display total monthly charges
+
+## Input Validation
+
+The system includes validation for:
+- Customer name (non-empty string)
+- Contract term (1-4 years)
+- Camera count (minimum 1 for 1-3 year terms)
 
 ## Modules
 
@@ -18,7 +56,7 @@ The `HomeSecurityBill` class stores customer and contract information. It calcul
 The `HomeSecurityBillTester` class is the main application class. It prompts the user for input, creates a `HomeSecurityBill` object, and displays the final bill summary. It also handles user confirmation and error display.
 
 ### 3. HomeSecurityInputvalidation
-**File:** [HomeSecurityInputvalidation.java](src/main/java/com/security/validation/HomeSecurityInputvalidation.java)
+**File:** [HomeSecurityInputvalidation.java](src/main/java/com/security/app/validation/HomeSecurityInputvalidation.java)
 
 **Description:** 
 The `HomeSecurityInputvalidation` class provides utility methods for validating user input. It ensures that the input values for customer name, address, number of cameras, and contract years are valid. It also handles user confirmation prompts.
@@ -29,33 +67,13 @@ The `HomeSecurityInputvalidation` class provides utility methods for validating 
 **Description:** 
 The `BillCalculator` class handles all pricing calculations. It calculates the monthly price based on the selected package and the number of cameras. It also calculates the total contract value based on the monthly price and the contract years.
 
-## Usage
-1. Run the `HomeSecurityBillTester` class.
-2. Follow the prompts to enter customer name, address, number of years, and number of cameras (if applicable).
-3. Review the order details and confirm the purchase.
-4. The final order confirmation will be displayed.
-
 ## Example Output
 
-<!--
-![output1](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/1Bill.png)
-![output2](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/3Bill.png)
-![output3](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/4Bill.png)
-![output4](https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/5Bill.png)
--->
-<div style="display: flex; flex-wrap: wrap;">
-    <!-- First Row -->
-    <div style="display: flex; width: 75%;">
-        <img src="https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/1Bill.png?raw=true" alt="output1" style="width: 50%;">
-        <img src="https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/3Bill.png?raw=true" alt="output2" style="width: 50%;">
-    </div>
-    <!-- Second Row -->
-    <div style="display: flex; width: 75%;">
-        <img src="https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/4Bill.png?raw=true" alt="output3" style="width: 50%;">
-        <img src="https://github.com/hjoseph777/lab03-homesecuritybill/blob/main/src/main/resources/images/5Bill.png?raw=true" alt="output4" style="width: 50%;">
-    </div>
-</div>
+## Output
 
+![output](src/main/resources/images/OutputResult.png)
+        
+    
 
 ## Directory and File Structure
 <pre>

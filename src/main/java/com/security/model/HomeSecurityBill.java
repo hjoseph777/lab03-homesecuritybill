@@ -3,18 +3,12 @@
 // Purpose: Stores customer and contract information
 // ==========================================
 package com.security.model;
-import com.security.util.BillCalculator;
-import com.security.validation.HomeSecurityInputvalidation;
+
 import java.util.Scanner;
+import com.security.validation.HomeSecurityInputvalidation;
 
 public class HomeSecurityBill {
     private String customerName;
-    private String address;
-    private int cameraCount;
-    private int contractYears;
-    private double monthlyPrice;
-    private double totalContractValue;
-    private static final HomeSecurityInputvalidation validator = new HomeSecurityInputvalidation();
     private int numberOfCameras;
     private int term;
 
@@ -22,116 +16,86 @@ public class HomeSecurityBill {
         // Default constructor
     }
 
-   
-
-    public HomeSecurityBill(String customerName, String address, int cameraCount, int contractYears) {
-        
-        this.customerName = validator.getValidString(new Scanner(customerName), "");
-        this.address = validator.getValidString(new Scanner(address), "");
-        
-        
-        validator.validateRange(cameraCount, 1, Integer.MAX_VALUE, "Camera count");
-        validator.validateRange(contractYears, 2, Integer.MAX_VALUE, "Contract years");
-        
-        this.cameraCount = cameraCount;
-        this.contractYears = contractYears;
-        calculatePrices();
-    }
-
-    private void calculatePrices() {
-        BillCalculator calculator = new BillCalculator();
-        this.monthlyPrice = calculator.calculateMonthlyPrice(numberOfCameras, term);
-        this.totalContractValue = calculator.calculateTotalContractValue(monthlyPrice, term);
-    }
-
-    public void getUserInput(Scanner scanner) {
-        this.customerName = validator.getValidString(scanner, "Customer Name: ");
-        this.address = validator.getValidString(scanner, "Customer Address: ");
-        this.term = validator.getValidTerm(scanner);
-        if (this.term < 4) {
-            this.numberOfCameras = validator.getValidCameraCount(scanner);
-        } else {
-            this.numberOfCameras = 4; 
-        }
-        calculatePrices();
-    }
-
-    public String getPackageName() {
-        switch (term) {
-            case 1:
-                return "XFinity Home Protection";
-            case 2:
-                return "YFinity Home Protection";
-            case 3:
-                return "ZFinity Home Protection";
-            default:
-                return "UFinity Home Protection";
-        }
-    }
-
-    public double packageCost() {
-        BillCalculator calculator = new BillCalculator();
-        return calculator.calculateMonthlyPrice(numberOfCameras, term);
-    }
-
-    @Override
-    public String toString() {
-        
-        String packageDetails = (term < 4) ? String.format("$%.2f per month for 24/7 video recording with %d camera(s)\nThe cost includes base price, $5 per month for one camera and $3 per additional camera", packageCost(), numberOfCameras) : "$23.99 per month for 24/7 video recording\nIt comes with four cameras";
-        return String.format("%s has purchased %s on a %d-year term\n%s", customerName, getPackageName(), term, packageDetails);
+    public HomeSecurityBill(String nName, int cameras, int year) {
+        this.customerName = nName;
+        this.numberOfCameras = cameras;
+        this.term = year;
     }
 
     public String getCustomerName() {
         return customerName;
     }
 
-    public String getAddress() {
-        return address;
+    public int getNumOfCameras() {
+        return numberOfCameras;
     }
 
-    public int getCameraCount() {
-        return cameraCount;
+    public int getTerm() {
+        return term;
     }
 
-    public int getContractYears() {
-        return contractYears;
+    public void setCustomerName(String nName) {
+        this.customerName = nName;
     }
 
-    public double getMonthlyPrice() {
-        return monthlyPrice;
+    public void setNumOfCameras(int newC) {
+        this.numberOfCameras = newC;
     }
 
-    public double getTotalContractValue() {
-        return totalContractValue;
+    public void setTerm(int newTerm) {
+        this.term = newTerm;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = validator.getValidString(new Scanner(customerName), "");
+    public double charges(int camPrice, double packPrice) {
+        double cameraCost = (term < 4) ? camPrice + (numberOfCameras - 1) * 3 : 0;
+        return cameraCost + packPrice;
     }
 
-    public void setAddress(String address) {
-        this.address = validator.getValidString(new Scanner(address), "");
-    }
-
-    public void setCameraCount(int cameraCount) {
-        validator.validateRange(cameraCount, 1, Integer.MAX_VALUE, "Camera count");
-        this.cameraCount = cameraCount;
-        calculatePrices(); // Recalculate prices when camera count changes
-    }
-
-    public void setContractYears(int contractYears) {
-        validator.validateRange(contractYears, 2, Integer.MAX_VALUE, "Contract years");
-        this.contractYears = contractYears;
-        calculatePrices(); // Recalculate prices when contract years change
-    }
-
-    public String getBillSummary() {
-        StringBuilder summary = new StringBuilder();
-        summary.append(String.format("Customer: %s\nAddress: %s\n", customerName, address));
-        if (term < 3) {
-            summary.append(String.format("Number of Cameras: %d\nContract Length: %d years\n", numberOfCameras, term));
+    public double packageCost() {
+        switch (term) {
+            case 1: return 15.99;
+            case 2: return 13.99;
+            case 3: return 12.99;
+            default: return 23.99;
         }
-        summary.append(String.format("Monthly Cost: $%.2f\nTotal Contract Value: $%.2f\n", monthlyPrice, totalContractValue));
-        return summary.toString();
+    }
+
+    public String getPackageName() {
+        String baseName = term < 4 ? 
+            (term == 1 ? "XFinity" : term == 2 ? "YFinity" : "ZFinity") : "UFinity";
+        return baseName + " Home Protection";
+    }
+
+    public void takeInput(Scanner scan) {
+        HomeSecurityInputvalidation validator = new HomeSecurityInputvalidation();
+        this.customerName = validator.getValidString(scan, "Enter the name of customer: ");
+        this.term = validator.getValidTerm(scan);
+        if (this.term < 4) {
+            System.out.println("Minimum One camera required");
+            this.numberOfCameras = validator.getValidCameraCount(scan);
+        }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(String.format("%s has purchased %s on a %d-year term\n",
+                customerName, getPackageName(), term));
+        
+        double monthlyBill = packageCost();
+        if (term < 4) {
+            sb.append(String.format("$%.2f per month for 24/7 video recording with %d camera(s)\n",
+                    monthlyBill + (numberOfCameras > 0 ? 5 + (numberOfCameras - 1) * 3 : 0), 
+                    numberOfCameras));
+            if (numberOfCameras == 1) {
+                sb.append("The cost includes base price and $5 per month for one camera");
+            } else {
+                sb.append("The cost includes base price, $5 per month for one camera and $3 per additional camera");
+            }
+        } else {
+            sb.append(String.format("$%.2f per month for 24/7 video recording\n", monthlyBill));
+            sb.append("It comes with four cameras");
+        }
+        return sb.toString();
     }
 }
